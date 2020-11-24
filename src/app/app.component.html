@@ -43,7 +43,7 @@
         </div>
       </div>
 <div class="m-2">
-    <input type="button" #cancelCutomer id="cancelUser"  name="cancelUser" type="button" class="btn btn-secondary" (click)="cancelUser()" value="Cancel">
+    <input type="button" id="cancelUser"  name="cancelUser" type="button" class="btn btn-secondary" (click)="cancelUser()" value="Cancel">
 </div>
   <div class="m-2">
       <button [disabled]="!newUserForm.valid"  class="btn btn-primary"  type="submit">Save</button>
@@ -78,8 +78,8 @@
       </td>
       <td>
         
-      <input type="button" #cancelCutomer type="button" class="btn btn-primary" (click)="edituser(user)" value="Edit">
-      <input type="button" #cancelCutomer type="button" class="btn btn-danger ml-3" (click)="deleteUser(user)" value="Delete">
+      <input type="button"  type="button" class="btn btn-primary" (click)="edituser(user)" value="Edit">
+      <input type="button"  type="button" class="btn btn-danger ml-3" (click)="deleteUser(user)" value="Delete">
       </td>
     </tr>
   </tbody>
