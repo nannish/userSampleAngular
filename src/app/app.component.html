@@ -1,0 +1,94 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center; margin:auto" class='col-md-8 mt-5 ml-5 '>
+
+
+  <div class="col-md-8 card" >
+    <h2>Add User</h2>
+    <form [formGroup]="newUserForm" (ngSubmit)="saveUser(newUserForm.value)" class="row px-3">
+      
+  
+      <div class=" col-6 border-0">
+        <div class="form-group">
+          <label class="text-gray">First Name</label>
+          <input formControlName="firstName" class="form-control validation-field" type="text">
+          <small class="text-danger"
+            *ngIf="newUserForm.controls.firstName.touched && newUserForm.controls.firstName.errors?.required">First
+            Name is required</small>
+        </div>
+      </div>
+      <div class=" col-6 border-0">
+        <div class="form-group">
+          <label class="text-gray">Last Name</label>
+          <input formControlName="lastName" class="form-control validation-field" type="text">
+          <small class="text-danger"
+            *ngIf="newUserForm.controls.lastName.touched && newUserForm.controls.lastName.errors?.required">Last
+            Name is required</small>
+        </div>
+      </div>
+      <div class=" col-6 border-0">
+        <div class="form-group">
+          <label class="text-gray">City</label>
+          <input formControlName="city" class="form-control validation-field" type="text">
+          <small class="text-danger"
+            *ngIf="newUserForm.controls.city.touched && newUserForm.controls.city.errors?.required">City is required</small>
+        </div>
+      </div>
+      <div class=" col-6 border-0">
+        <div class="form-group">
+          <label class="text-gray">Phone</label>
+          <input formControlName="phone" class="form-control validation-field" type="text">
+          <small class="text-danger"
+            *ngIf="newUserForm.controls.phone.touched && newUserForm.controls.phone.errors?.required">Phone is required</small>
+        </div>
+      </div>
+<div class="m-2">
+    <input type="button" #cancelCutomer id="cancelUser"  name="cancelUser" type="button" class="btn btn-secondary" (click)="cancelUser()" value="Cancel">
+</div>
+  <div class="m-2">
+      <button [disabled]="!newUserForm.valid"  class="btn btn-primary"  type="submit">Save</button>
+  </div>
+    </form>
+  </div>
+<div>
+<h5 class="qtyh6 mt-5">Users</h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"  sortable="firstName" (sort)="onSort($event)">First Name</th>
+      <th scope="col" sortable="lastName" (sort)="onSort($event)">Last Name</th>
+      <th scope="col"sortable="city" (sort)="onSort($event)">City</th>
+      <th scope="col" sortable="phone" (sort)="onSort($event)">Phone</th>
+      <th scope="col">...</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+        <td>
+           <ngb-highlight [result]="user.firstName" ></ngb-highlight>
+          </td>
+      <td>
+        <ngb-highlight [result]="user.lastName" ></ngb-highlight>
+      </td>
+      <td>
+        <ngb-highlight [result]="user.city" ></ngb-highlight>
+      </td>
+      <td>
+      <ngb-highlight [result]="user.phone" ></ngb-highlight>
+      </td>
+      <td>
+        
+      <input type="button" #cancelCutomer type="button" class="btn btn-primary" (click)="edituser(user)" value="Edit">
+      <input type="button" #cancelCutomer type="button" class="btn btn-danger ml-3" (click)="deleteUser(user)" value="Delete">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  
+  
+</div>
+ 
+ 
+
+<router-outlet></router-outlet>
